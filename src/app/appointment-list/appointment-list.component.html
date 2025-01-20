@@ -1,13 +1,27 @@
-<p>appointment-list works!</p>
-
-<input [(ngModel)]="newAppointmentTitle" placeholder="title" type="text"/>
-<input [(ngModel)]="newAppointmentDate" placeholder="appointment-date" type="date"/>
-<button (click)="addAppointment()">Add</button>
-
-<ul *ngFor="let appointment of appointmentList; index as i">
-	<li>
-		{{appointment.title}} {{appointment.date | date: "dd-MM-yyyy"}}
-		<button (click)="deleteAppointment(i)">Delete</button>
-	</li>
-</ul>
- 
+<div class="container">
+	<div class="card mt-3">
+		<div class="row">
+			<div class="col">
+				<h2 class="text-center">Create an Appointment App</h2>
+			</div>
+		</div>
+		<div class="row mt-3">
+			<div class="col-md-6">
+				<input class="form-control" [(ngModel)]="newAppointmentTitle" placeholder="title" type="text" />
+			</div>
+			<div class="col-md-4">
+				<input class="form-control" [(ngModel)]="newAppointmentDate" placeholder="date" type="date" />
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-primary w-100" (click)="addAppointment()">Add</button>
+			</div>
+		</div>
+	</div>
+	<h2 class="text-center mt-5">Appointments</h2>
+	<ul class="list-group mt-3" *ngFor="let appointment of appointmentList;index as i">
+		<li class="list-group-item d-flex justify-content-between align-item-center">
+			{{appointment.title}} {{appointment.date | date: "dd-MM-yyyy"}}
+			<button class="btn btn-danger" (click)="deleteAppointment(i)">Delete</button>
+		</li>
+	</ul>
+</div>
